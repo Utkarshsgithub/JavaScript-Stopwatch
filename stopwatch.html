@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <title>Stopwatch - @utkarshcodes</title>
+    <style>
+        * {
+            font-family: 'Amatic SC', cursive;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 2rem;
+        }
+        
+        .watch {
+            color: lightgreen;
+            width: 50%;
+            height: 20%;
+            background-color: black;
+            border: 5px solid transparent;
+            border-radius: 5px;
+            border-image-slice: 1;
+            border-image-source: linear-gradient(to top, lightgreen, black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 3rem;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        
+        .btn {
+            color: black;
+            border: 2px solid black;
+            border-radius: 3px;
+            font-size: 2rem;
+            background-color: lightgreen;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Stopwatch ~ @utkarshcodes</h1>
+        <div class="watch">
+            <h1><span id="zero"></span><span id="min">00</span>:<span id="zero2"></span><span id="sec">00</span></h1>
+        </div>
+        <span id="btn"></span><button style="font-family: cursive;" id="startButton" class="btn" onclick="setInterval(timeBadhao, 1000)"> Start</button></span>
+    </div>
+
+    <script>
+        // var id = setInterval(timeBadhao, 1000)
+        var sec = 0;
+        var min = 0;
+
+        // function stopTime() {
+        //     clearInterval(id)
+        //     sec = 0;
+        //     min = 0;
+        //     document.getElementById('sec').innerHTML = sec;
+        //     document.getElementById('min').innerHTML = min;
+        // }
+
+        function ss() {
+
+        }
+
+        function timeBadhao() {
+            document.getElementById('startButton').style.display = 'none';
+            document.getElementById('btn').innerHTML = '<button style="font-family: cursive;" class="btn" onclick="stopTime">Stop</button>';
+            sec = sec + 1;
+            if (sec < 10) {
+                document.getElementById('zero2').innerHTML = 0;
+            } else {
+                document.getElementById('zero2').innerHTML = " ";
+            }
+            if (min > 0) {
+                if (min < 10) {
+                    document.getElementById('zero').innerHTML = 0;
+                } else {
+                    document.getElementById('zero').innerHTML = " ";
+                }
+            }
+            if (sec > 60) {
+                min = min + 1;
+                sec = 0;
+                document.getElementById('sec').innerHTML = sec;
+                document.getElementById('min').innerHTML = min;
+            } else {
+                document.getElementById('sec').innerHTML = sec;
+            }
+        }
+    </script>
+</body>
+
+</html>
